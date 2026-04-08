@@ -1,0 +1,69 @@
+type Timestamp = int;
+type SubmitFeedbackResponse = 
+ record {
+   message: text;
+   success: bool;
+ };
+type SubmitFeedbackRequest = 
+ record {
+   comment: opt text;
+   orderId: OrderId;
+   rating: nat;
+ };
+type PlaceOrderResponse = 
+ record {
+   message: text;
+   orderId: OrderId;
+   totalPrice: nat;
+ };
+type PlaceOrderRequest = 
+ record {
+   customerName: text;
+   items: vec OrderItem;
+   phone: text;
+ };
+type OrderStatus = 
+ variant {
+   confirmed;
+   delivered;
+   pending;
+   ready;
+ };
+type OrderItem = 
+ record {
+   name: text;
+   quantity: nat;
+   unitPrice: nat;
+   "variant": ItemVariant;
+ };
+type OrderId = nat;
+type Order = 
+ record {
+   customerName: text;
+   id: OrderId;
+   items: vec OrderItem;
+   phone: text;
+   status: OrderStatus;
+   timestamp: Timestamp;
+   totalPrice: nat;
+ };
+type ItemVariant = 
+ variant {
+   full;
+   half;
+   regular;
+ };
+type Feedback = 
+ record {
+   comment: opt text;
+   id: nat;
+   orderId: OrderId;
+   rating: nat;
+   timestamp: Timestamp;
+ };
+service : {
+  getFeedbacks: () -> (vec Feedback) query;
+  getOrders: () -> (vec Order) query;
+  placeOrder: (req: PlaceOrderRequest) -> (PlaceOrderResponse);
+  submitFeedback: (req: SubmitFeedbackRequest) -> (SubmitFeedbackResponse);
+}

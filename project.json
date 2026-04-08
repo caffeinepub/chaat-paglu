@@ -1,0 +1,21 @@
+{
+  "overview": "A vibrant street food ordering website for Chaat Paglu where customers browse the menu, add items to a cart, place orders, and share feedback — no login needed.",
+  "features": [
+    "Browse 6 street food items with prices and half/full variants",
+    "Shopping cart with quantity controls and live subtotal",
+    "Order checkout with name and phone fields",
+    "Order confirmation with unique reference number",
+    "Post-order star rating and feedback form",
+    "Vibrant saffron, orange, and red street vendor design"
+  ],
+  "category": "food-ordering",
+  "tags": [
+    "chaat",
+    "street-food",
+    "food-ordering",
+    "cart",
+    "feedback",
+    "indian-food"
+  ],
+  "last_updated": "2026-04-08T21:40:11.351Z"
+}
